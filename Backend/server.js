@@ -2,13 +2,14 @@ const express = require("express")
 const cors = require("cors")
 const helmet = require("helmet")
 
-const scanRoutes = require("./routes/scanRoutes.js")
-
 const app = express()
 
+const scanRoutes = require("./routes/scanRoutes.js")
+
+app.use(express.json())
 app.use(cors())
 app.use(helmet())
-app.use(express.json())
+
 
 app.use('/api', scanRoutes)
 const PORT = 5000
